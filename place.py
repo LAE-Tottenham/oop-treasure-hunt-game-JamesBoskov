@@ -5,20 +5,13 @@ class Place():
         self.size = given_size
         self.locked = locked
         self.next_places = []
-        self.items = []
+        self.searchable_objects = []
         # add more atributes as needed
 
     def add_next_place(self, place_instance):
         self.next_places.append(place_instance)
 
-    def add_item(self, item_instance):
-        # add code here
+    def unlock(self):
         pass
-
-    def show_next_places(self):
-        print("The possible places you can go to are: ")
-        for place in self.next_places:
-            # remember that next_places is a list of Place instances hence why we can use place.name
-            print(place.name)
 
     # add more methods as needed

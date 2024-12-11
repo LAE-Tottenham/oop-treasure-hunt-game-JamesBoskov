@@ -1,27 +1,24 @@
+import random
 class Player():
-    def __init__(self, given_name):
-        self.name = given_name
-        self.health = 100
-        self.energy = 100
-        self.inventory_max_weight = 50
-        self.inventory = []
-        # add more atributes as needed
+    def __init__(self, moves):
+        self.health = 18 + random.randint(1, 5)
+        self.attack = 18 + random.randint(1, 5)
+        self.defense = 18 + random.randint(1, 5)
+        self.speed = 18 + random.randint(1, 5)
+        self.moveset = [moves["booster bounce"], moves["menacing growl"]]
 
     def calculate_inventory_size(self):
-        # write code here
         pass
 
     def add_item(self, item_instance):
-        if self.calculate_inventory_size() > self.inventory_max_weight:
-            self.inventory.append(item_instance)
-        else:
-            print("Your inventory is full...")
+        pass
 
     def use_item(self, item_instance):
-        if item_instance.type == "food":
-            self.energy += 50
-        elif item_instance.type == "medicine":
-            self.health += 50
-        # add more code here
+        pass
 
+    def add_move(self, moves, move):
+        pass
     # add more methods as needed
+
+moves = [{"booster bounce": {"name" : "booster bounce", "power" : 5, "effect" : None}}, 
+{"menacing growl" : {"name" : "menacing growl", "effect" : "atk"}}]
