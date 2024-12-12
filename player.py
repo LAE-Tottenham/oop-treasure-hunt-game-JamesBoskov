@@ -1,11 +1,15 @@
 import random
+from moves import * 
+
 class Player():
     def __init__(self, moves):
-        self.health = 18 + random.randint(1, 5)
-        self.attack = 18 + random.randint(1, 5)
-        self.defense = 18 + random.randint(1, 5)
-        self.speed = 18 + random.randint(1, 5)
-        self.moveset = [moves["booster bounce"], moves["menacing growl"]]
+        self.stats = {"health" : 18 + random.randint(1, 5),
+                      "attack" : 18 + random.randint(1, 5),
+                      "defense" : 18 + random.randint(1, 5),
+                      "speed" : 18 + random.randint(1, 5)}
+        self.current_stats = dict(self.stats)
+        self.moveset = {"booster bounce" : moves["booster bounce"], 
+                        "menacing bark" : moves["menacing bark"]}
 
     def calculate_inventory_size(self):
         pass
@@ -20,5 +24,4 @@ class Player():
         pass
     # add more methods as needed
 
-moves = [{"booster bounce": {"name" : "booster bounce", "power" : 5, "effect" : None}}, 
-{"menacing growl" : {"name" : "menacing growl", "effect" : "atk"}}]
+laika = Player(moves)

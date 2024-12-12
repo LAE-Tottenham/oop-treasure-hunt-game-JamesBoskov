@@ -18,7 +18,8 @@ class Game():
         # set starting place
         
         # finish the setup function...
-
+        pass
+    
     def start(self):
         # write some text, start game
-            
+            pass
