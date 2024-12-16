@@ -1,8 +1,8 @@
 from moves import *
-import random
 
 class Enemy():
-    def __init__(self, moves, health, attack, defense, speed):
+    def __init__(self, name,  moves, health, attack, defense, speed):
+        self.name = name
         self.stats = {"health" : health,
                       "attack" : attack,
                       "defense" : defense,
@@ -10,4 +10,4 @@ class Enemy():
         self.current_stats = dict(self.stats)
         self.moveset = moves
 
-test_goon = Enemy({"booster bounce" : moves["booster bounce"]}, 12, 10, 15, 10)
+test_goon = Enemy("test goon", [booster_bounce], 12, 10, 15, 10)

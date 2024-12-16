@@ -20,7 +20,16 @@ def help(commands):
 
 def get_move_output(player):
     move_names = "Choose your move:\n"
-    for i in range(len(player.moveset.values())-1):
-        move_names += f"{list(player.moveset.values())[i]["name"]}, "
-    move_names += f"or {list(player.moveset.values())[-1]["name"]}\n"
+    for i in range(len(player.moveset)-1):
+        move_names += f"{player.moveset[i].name}, "
+    move_names += f"or {player.moveset[-1].name}\n"
+    return move_names
+
+def get_item_output(player):
+    move_names = "Choose your item:\n"
+    if len(player.items) == 1:
+        return move_names + player.items[0].name + " "
+    for i in range(len(player.items)-1):
+        move_names += f"{player.items[i].name}, "
+    move_names += f"or {player.items[-1].name}\n"
     return move_names

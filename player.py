@@ -2,26 +2,27 @@ import random
 from moves import * 
 
 class Player():
-    def __init__(self, moves):
+    def __init__(self, booster_bounce, menacing_bark):
         self.stats = {"health" : 18 + random.randint(1, 5),
                       "attack" : 18 + random.randint(1, 5),
                       "defense" : 18 + random.randint(1, 5),
                       "speed" : 18 + random.randint(1, 5)}
         self.current_stats = dict(self.stats)
-        self.moveset = {"booster bounce" : moves["booster bounce"], 
-                        "menacing bark" : moves["menacing bark"]}
+        self.moveset = [booster_bounce, menacing_bark]
+        self.items = []
 
     def calculate_inventory_size(self):
         pass
 
     def add_item(self, item_instance):
-        pass
+        self.items.append(item_instance)
 
     def use_item(self, item_instance):
-        pass
+        self.items.remove(item_instance)
 
-    def add_move(self, moves, move):
-        pass
+    def add_move(self, move):
+        self.moveset[move["name"]] = move
+
     # add more methods as needed
 
-laika = Player(moves)
+laika = Player(booster_bounce, menacing_bark)
