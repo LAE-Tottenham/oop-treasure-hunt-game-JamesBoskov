@@ -5,5 +5,6 @@ class Move():
         self.effect = effect
         self.attack = attack
         
-booster_bounce = Move("booster bounce", 999, [None], True)
+booster_bounce = Move("booster bounce", 20, [None], True)
 menacing_bark = Move("menacing bark", 0, ["attack", 0.67], True)
+stand_there = Move("float ominously", 0, [None], True)

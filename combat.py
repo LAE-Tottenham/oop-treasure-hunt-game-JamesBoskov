@@ -103,12 +103,11 @@ def combat_turn(player, enemy):
         return move(player, enemy)
 
 def battle(player, enemy):
-    time.sleep(3)
     os.system("clear")
     while True:
         turn_result = combat_turn(player, enemy)
         if turn_result:
-            print(f"{enemy.name} has exploded into millions of bits, well done.")
+            print(f"{enemy.name} has exploded into millions of bits.")
             if enemy.item != None:
                 print(f"for defeating {enemy.name} you have gained a {enemy.item.name}")
                 player.items.append(enemy.item)
