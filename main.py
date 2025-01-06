@@ -13,4 +13,9 @@ class Game():
 
         
 Game_Instance = Game()
-print(Game_Instance.set_current_place(Orbit).name)
+next_place = Game_Instance.set_current_place(Orbit)
+while True:
+    if next_place != "checkpoint":
+        next_place = Game_Instance.set_current_place(next_place)
+    else:
+        next_place = Game_Instance.set_current_place(Game_Instance.checkpoint)

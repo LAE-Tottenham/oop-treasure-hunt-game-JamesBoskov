@@ -20,10 +20,11 @@ class Searchable_object():
             item = self.items[itemnum]
             laika.items.append(item)
             print(f"After searching resolutely Laika found a {item.name}")
+            return True
         else:
             enemynum = random.randint(0, len(self.enemies)-1)
             enemy = self.enemies[enemynum]
             print(f"Laika failed to find a useful item, but she did find {enemy.name}")
-            battle(laika, enemy)
+            return battle(laika, enemy)
 
 test_closet = Searchable_object("test closet", 80, [blowtorch], [test_goon])

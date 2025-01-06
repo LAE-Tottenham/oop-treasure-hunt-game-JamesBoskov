@@ -33,3 +33,14 @@ def get_item_output(player):
         move_names += f"{player.items[i].name}, "
     move_names += f"or {player.items[-1].name}\n"
     return move_names
+
+def get_unlocks_output(enemy):
+    strng = "you have unlocked "
+    unlocks = enemy.unlocks
+    if len(unlocks) == 1:
+        return strng+unlocks[0]
+    else:
+        for i in range(len(unlocks)-1):
+            strng += f"{unlocks[i]} "
+        strng+= f"and {unlocks[-1]}"
+        return strng

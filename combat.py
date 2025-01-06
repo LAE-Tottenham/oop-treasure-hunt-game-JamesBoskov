@@ -3,8 +3,6 @@ import random
 from misc_functions import *
 from player import *
 from enemy import *
-from item import *
-import copy
 import os
 
 def show_health(player, enemy):
@@ -111,9 +109,12 @@ def battle(player, enemy):
         turn_result = combat_turn(player, enemy)
         if turn_result:
             print(f"{enemy.name} has exploded into millions of bits, well done.")
-            break
+            if enemy.item != None:
+                print(f"for defeating {enemy.name} you have gained a {enemy.item.name}")
+                player.items.append(enemy.item)
+            time.sleep(2)
+            return turn_result
         if turn_result == False:
-            print(turn_result)
-            print("kaboom, with one final blow Laika is propelled into the cosmos by a ruch of air, try again.")
-            player.place = copy.deepcopy(player.checkpoint)
-            break
+            print("kaboom, with one final blow Laika is propelled into the cosmos with a rush of air, try again.")
+            time.sleep(2)
+            return turn_result
