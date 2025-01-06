@@ -1,3 +1,4 @@
+import time
 import random
 from misc_functions import *
 from player import *
@@ -104,6 +105,7 @@ def combat_turn(player, enemy):
         return move(player, enemy)
 
 def battle(player, enemy):
+    time.sleep(3)
     os.system("clear")
     while True:
         turn_result = combat_turn(player, enemy)
@@ -115,7 +117,3 @@ def battle(player, enemy):
             print("kaboom, with one final blow Laika is propelled into the cosmos by a ruch of air, try again.")
             player.place = copy.deepcopy(player.checkpoint)
             break
-
-laika.items.append(blowtorch)
-battle(laika, test_goon)
-print(test_goon.current_stats, laika.current_stats)
