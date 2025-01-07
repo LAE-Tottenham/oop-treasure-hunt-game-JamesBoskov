@@ -12,6 +12,7 @@ class Player():
         self.current_stats = dict(self.stats)
         self.moveset = [booster_bounce, menacing_bark]
         self.items = []
+        self.progress = 0
 
     def calculate_inventory_size(self):
         if len(self.items) > 10:
