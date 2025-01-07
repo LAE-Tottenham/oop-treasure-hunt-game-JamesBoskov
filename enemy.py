@@ -26,5 +26,5 @@ strange_ship = Enemy("a small strange ship", [stand_there], 50, 0, 40, 0, "It se
 jovian = Enemy("the jovian", [fake_out, steely_resolve, booster_bounce, all_out_crash], 37, 23, 20, 25, "A tall bipedal creature with red skin and defined musculature steps out from the clouds.", None, ["the strange space craft"])
 uranian = Enemy("the uranian", [fake_out, steely_resolve, booster_bounce, all_out_crash], 37, 23, 20, 25, "A tall bipedal creature with blue skin and defined musculature steps out from the clouds.", None, ["the strange space craft"])
 alien_warrior = Enemy("the warrior", [spacewalk_scratch, menacing_bark], 40, 40, 20, 20, "A great hulking mass of muscle and skin, it rears up on its hind legs before charging at you.", None, ["the abyss"])
-zorgul = Enemy("Zorgul the enemy king", [all_out_crash, steely_resolve], 32, 36, 34, 31, "The leader of this great race of aliens. He looks nervous.", None)
+zorgul = Enemy("Zorgul the enemy king", [all_out_crash, steely_resolve], 32, 36, 34, 31, "The leader of this great race of aliens. He looks nervous.", None, None)
 shopkeeper = Enemy("an angry shopkeeper", [mega_booster_bounce], 15, 50, 20, 20, "shows you for stealing", None, None)
