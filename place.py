@@ -83,7 +83,7 @@ class Place():
         return choices[command]
 
 # defines all the places for the story
-Home = Place("home", None, None, None, None, False, False, False, False)
+Home = Place("home", None, None, None, None, False, False)
 Orbit = Place("orbit", [], "Welcome to orbit, you are currently circling around the earth at a speed of seven and a half kilometres a second. You may be alone in the vast expanse of space, but you do have some ideas as to what you want to do. You could: ", "What next?",
                [space_rock], [comet, meteor], "Well done on pulverising that murderous peice of nickel, in the ensueing cloud of smoke you managed to find your rocket's fins, in the words of Borat, 'great success'", 
                False, False)

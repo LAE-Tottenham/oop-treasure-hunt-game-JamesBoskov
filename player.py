@@ -4,10 +4,10 @@ from InquirerPy import inquirer
 
 class Player():
     def __init__(self, booster_bounce, menacing_bark):
-        self.stats = {"health" : 18 + random.randint(1, 5),
-                      "attack" : 18 + random.randint(1, 5),
-                      "defense" : 18 + random.randint(1, 5),
-                      "speed" : 18 + random.randint(1, 5)}
+        self.stats = {"health" : 21 + random.randint(1, 5),
+                      "attack" : 21 + random.randint(1, 5),
+                      "defense" : 21 + random.randint(1, 5),
+                      "speed" : 21 + random.randint(1, 5)}
         self.name = "Laika"
         self.current_stats = dict(self.stats)
         self.moveset = [booster_bounce, menacing_bark]
