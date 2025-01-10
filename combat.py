@@ -4,6 +4,7 @@ from misc_functions import *
 from player import *
 from enemy import *
 import os
+import copy
 
 def show_health(player, enemy):
     print(f"Laika: {player.current_stats["health"]}hp\n{enemy.name}: {enemy.current_stats["health"]}hp")
@@ -44,7 +45,7 @@ def move(player, enemy):
     for i in player.moveset:
         if i.name == player_move_name:
             player_move = i
-
+    time.sleep(0.5)
     os.system("clear")
     enemy_move = enemy.moveset[random.randint(0, len(enemy.moveset)-1)]
 
@@ -59,10 +60,10 @@ def move(player, enemy):
     else:
         dead = take_move(enemy_move, enemy, player)
         if dead:
-            return True 
-        take_move(player_move, player, enemy)
-        if dead:
             return False
+        dead = take_move(player_move, player, enemy)
+        if dead:
+            return True
     show_health(player, enemy)
     return None
 
@@ -82,6 +83,7 @@ def use_item(player, enemy):
 
     # print some stuff
     print(f"Laika used {player_item_name}")
+    time.sleep(1)
     os.system("clear")
     if player_item.effect[0] == "health":
         print(f"Laika increased her health by {player_item.effect[1]}")
@@ -111,9 +113,11 @@ def battle(player, enemy):
             if enemy.item != None:
                 print(f"for defeating {enemy.name} you have gained a {enemy.item.name}")
                 player.items.append(enemy.item)
+            laika.current_stats = copy.deepcopy(laika.stats)
             time.sleep(2)
             return turn_result
         if turn_result == False:
             print("kaboom, with one final blow Laika is propelled into the cosmos with a rush of air, try again.")
+            laika.current_stats = copy.deepcopy(laika.stats)
             time.sleep(2)
             return turn_result

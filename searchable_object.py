@@ -25,6 +25,7 @@ class Searchable_object():
             enemynum = random.randint(0, len(self.enemies)-1)
             enemy = self.enemies[enemynum]
             print(f"Laika failed to find a useful item, but she did find {enemy.name}")
+            time.sleep(2)
             return battle(laika, enemy)
 
 comet = Searchable_object("the comet", 100, [low_quality_kibble, jet_fuel, rebar], [])

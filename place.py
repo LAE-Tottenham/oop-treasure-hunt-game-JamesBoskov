@@ -22,7 +22,8 @@ class Place():
     def start(self):
         if self.send_to_debris:
             self.send_to_debris = False
-            return True
+            self.locked = True
+            return Debris_Field
         
         if self.name == "home":
             print("well done brave traveller, you have won")
@@ -53,7 +54,7 @@ class Place():
                 laika.stats["speed"] += 2
                 laika.stats["defense"] += 2
                 if laika.proggress in list(proggression_moves.keys()):
-                    print(f"laika learnt {proggression_moves[laika.proggress]}")
+                    print(f"laika learnt {proggression_moves[laika.proggress].name}")
                     laika.moveset.append(proggression_moves[laika.proggress])
                 if laika.proggress == 9:
                     Home.locked = False
@@ -82,7 +83,7 @@ class Place():
         return choices[command]
 
 # defines all the places for the story
-Home = Place("home", None, None, None, None, None, None)
+Home = Place("home", None, None, None, None, False, False, False, False)
 Orbit = Place("orbit", [], "Welcome to orbit, you are currently circling around the earth at a speed of seven and a half kilometres a second. You may be alone in the vast expanse of space, but you do have some ideas as to what you want to do. You could: ", "What next?",
                [space_rock], [comet, meteor], "Well done on pulverising that murderous peice of nickel, in the ensueing cloud of smoke you managed to find your rocket's fins, in the words of Borat, 'great success'", 
                False, False)
@@ -91,7 +92,7 @@ Geostationary_Orbit = Place("geostationary orbit", [], "Welcome to geostationary
                              "Anything else?", [ominous_sattelite], [derelict_sattelite, abandoned_space_station], "You have majorly destroyed that pesky satelite. Coincidentally you managed to find your nose cone in the wreck, or maybe it isn't yours, don't know don't care",
                                False, False)
 
-Moon = Place("the Moon", [], "Welcome to the Moon, as you land on its surface you feel the ship get stuck to something sticky, as you walk out you fin a mess of gooey cheese beneath your feet, what do you do next?",
+Moon = Place("the Moon", [], "Welcome to the Moon, as you land on its surface you feel the ship get stuck to something sticky, as you walk out you find a mess of gooey cheese beneath your feet, what do you do next?",
               "Any other moonish errands need running?", [cheese_monster], [cheese_shop, cheese_shop2], "You wade through the sticky, melty mess he left behind, and just in the centre you find it, your rocket's central computer.", False, False)
 
 Mars = Place("Mars", [], "welcome to Mars, you are far away from home now, and its just now setting in, but if you want to succeed you'll have to push that feeling of fear down and keep trudging on", 
@@ -106,7 +107,7 @@ Jupiter = Place("Jupiter", [], "welcome to Jupiter, this gas giant is the bigges
                  "What else would you like to do on Jupiter?",[jovian], [jovian_surface], "You kill this thing, it cries in anguish. However you did manage to recover your guidance sensors so pros and cons i guess.")
 
 Uranus = Place("Uranus", [], "welcome to Uranus, it can get cold here, -195 degrees celsius. You hope your thermal insulation is still functional after the crash.",
-                "What else would you like to do on Uranus?", [uranian], [uranian_surface], "It's screams will haunt you for weaks, but having your capsules flotaion devices will making landing in the sea alot more survivable.")
+                "What else would you like to do on Uranus?", [uranian], [uranian_surface], "It's screams will haunt you for weeks, but having your capsules flotaion devices will making landing in the sea alot more survivable.")
 
 Strange_Space_Craft = Place("the strange space craft", [], "welcome to the strange space craft, the aliens aboard are not unlike your friends from back home, but they stare at you strangely and piercingly.",
                              "What else would you like to do here?", [alien_warrior], [], "It lies at your feet, slain. Well done, you salvage your rockets nozzle, one more step left.")
@@ -114,13 +115,14 @@ Strange_Space_Craft = Place("the strange space craft", [], "welcome to the stran
 Abyss = Place("the abyss", [], "You float, alone, through an unending abyss. Another ship now joins you, maybe this is the way out", "Leave this place and cleanse it from your memory.", [zorgul], [], "Finally, its over, this journey these battles, youve done the hard part, now get back home. You find the bolts needed to fit all the peices youve collected together.")
 
 # defines how the player can move between places in the story
-Orbit.set_next_places([Moon, Geostationary_Orbit, Mars, Home, Interstellar_Highway])
+Orbit.set_next_places([Geostationary_Orbit, Moon, Mars, Home, Interstellar_Highway])
 Geostationary_Orbit.set_next_places([Orbit, Mars])
 Moon.set_next_places([Mars, Orbit])
 Mars.set_next_places([Interstellar_Highway, Geostationary_Orbit, Moon])
 Interstellar_Highway.set_next_places([Orbit, Geostationary_Orbit, Moon, Mars, Debris_Field, Jupiter, Uranus, Strange_Space_Craft])
+Debris_Field.set_next_places([Interstellar_Highway])
 Jupiter.set_next_places([Interstellar_Highway])
 Uranus.set_next_places([Interstellar_Highway])
-Strange_Space_Craft.set_next_places([Interstellar_Highway, Strange_Space_Craft])
+Strange_Space_Craft.set_next_places([Interstellar_Highway,Abyss])
 Abyss.set_next_places([Strange_Space_Craft])
-places = [Orbit, Geostationary_Orbit, Moon, Mars, Interstellar_Highway, Jupiter, Uranus, Strange_Space_Craft, Abyss]
+places = [Home, Orbit, Geostationary_Orbit, Moon, Mars, Interstellar_Highway, Jupiter, Uranus, Strange_Space_Craft, Abyss]

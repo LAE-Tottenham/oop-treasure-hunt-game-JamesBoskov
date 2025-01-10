@@ -9,6 +9,8 @@ class Game():
         self.checkpoint = Orbit
     
     def set_current_place(self, new_place):
+        if new_place == None:
+            return None
         self.current_place = new_place
         return self.current_place.start()
 
@@ -20,6 +22,8 @@ print("You are Laika, one of the first animals ever sent into space by the great
 Game_Instance = Game()
 next_place = Game_Instance.set_current_place(Orbit)
 while True:
+    if next_place == None:
+        break
     if next_place != "checkpoint":
         next_place = Game_Instance.set_current_place(next_place)
     else:
